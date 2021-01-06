@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.eight.florist.dao.UsersMapper">
+  <resultMap id="BaseResultMap" type="team.eight.florist.pojo.Users">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="face_image" jdbcType="VARCHAR" property="faceImage" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="phone_number" jdbcType="INTEGER" property="phoneNumber" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from users
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="team.eight.florist.pojo.Users">
+    insert into users (id, username, password, 
+      face_image, nickname, phone_number,rId,
+      address)
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{faceImage,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=INTEGER}, 
+      #{rId,jdbcType=VARCHAR},#{address,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="team.eight.florist.pojo.Users">
+    update users
+    set username = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      face_image = #{faceImage,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      phone_number = #{phoneNumber,jdbcType=INTEGER},
+      address = #{address,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, username, password, face_image, nickname, phone_number, address
+    from users
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT users.id, username, PASSWORD, face_image, nickname,TYPE AS rId
+    FROM users,role
+    WHERE username =#{username} AND rId=role.id
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, username, password, face_image, nickname, phone_number, address
+    from users
+  </select>
+</mapper>

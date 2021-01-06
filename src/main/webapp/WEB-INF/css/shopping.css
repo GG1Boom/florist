@@ -1,0 +1,154 @@
+body,table,tr,th,td,div,p,a,span,input,ul,li{
+	padding: 0;
+	margin: 0;
+}
+#main{
+	width: 900px;
+	margin: 40px auto;
+}
+table{
+	border: 1px solid black;
+	border-collapse: collapse;
+	width: 800px;
+	background: lavender;
+	margin-bottom: 10px;
+}
+table th{
+	height: 30px;
+	background: darkgray;
+}
+tbody td{
+	padding: 20px 10px;
+}
+tr{
+	border-bottom: 1px dashed white;
+}
+ul{
+	list-style: none;
+}
+/*goods*/
+.p-msg,.p-img{
+	float: left;
+	margin-right: 15px;
+}
+.p-msg{
+	height: 100px;
+	line-height: 100px;
+}
+/*number*/
+.input-number {
+  width: 50px;
+  padding: 0 6px;
+  vertical-align: top;
+  text-align: center;
+  outline: none;
+}
+
+.input-number,
+.input-number-decrement,
+.input-number-increment {
+  border: 1px solid #cccccc;
+  height: 20px;
+  user-select: none;
+}
+.input-number-decrement,
+.input-number-increment {
+  display: inline-block;
+  width: 24px;
+  line-height: 20px;
+  background: #f1f1f1;
+  color: #444444;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  
+}
+.input-number-decrement:active,
+.input-number-increment:active {
+  background: #dddddd;
+}
+
+.input-number-decrement {
+  border-radius: 0px 0 0 0px;
+}
+
+.input-number-increment {
+  border-radius: 0 0px 0px 0;
+}
+/*tips*/
+.tips{
+	font-weight: bold;
+	color: salmon
+}
+
+/*foot*/
+.foot{
+	width: 800px;
+	height: 60px;
+	line-height: 60px;
+	background: darkgray;
+}
+.foot ul li{
+	float: left;
+	margin-right: 40px;
+}
+
+.btn-area{
+	display: block;
+    position: relative;
+    width: 96px;
+    height: 52px;
+    line-height: 52px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Microsoft YaHei";
+    background: #e54346;
+    overflow: hidden;
+    float: right;
+}
+.on{
+	background: aliceblue;
+}
+#arrow-top{
+	float: right;
+	display: block;
+}
+.infBox{
+	width: 800px;
+	height: 120px;
+	background: white;
+	margin-top: 10px;
+	z-index: 10;
+	display: none;
+}
+.selectViewList div{
+	display: inline-block;
+	position: relative;
+	margin-right: 10px;
+}
+.selectViewList div span{
+	display:none;
+    color: #ffffff;
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 60px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    background: RGBA(0,0,0,.5);
+    cursor: pointer;
+}
+.selectViewList div:hover span{
+	display: block;
+}
+#foot-delectAll:hover{
+	color: red;
+	text-decoration: underline;
+}
+.delect:hover{
+	color: red;
+	text-decoration: underline;
+}

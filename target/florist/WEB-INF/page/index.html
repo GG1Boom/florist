@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>线上鲜花售卖管理系统</title>
+  <link rel="stylesheet" href="../layui/css/layui.css" th:href="@{/layui/css/layui.css}">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">网上花店</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img th:src="@{'/'+${session.users.faceImage}}" class="layui-nav-img">
+          <span th:text="${session.users.nickname}"></span>
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="http://localhost:8080/florist">退出登录</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed" th:if="${session.users.rId}=='admin'">
+          <a class="" href="javascript:;">鲜花管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="../page/flowernow.html" target="flower1">鲜花库存</a></dd>
+            <dd><a href="../page/flowerrecord.html" target="flower1">鲜花进货记录</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed" th:if="${session.users.rId}=='admin'">
+          <a class="" href="javascript:;">会员信息管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="../page/userData.html" target="flower1">用户信息</a></dd>
+            <dd><a href="../page/flowerorder.html" target="flower1">订单查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">鲜花浏览</a>
+          <dl class="layui-nav-child">
+            <dd><a href="../page/flowerse.html" target="flower1">鲜花查询</a></dd>
+            <dd><a href="../page/flowerrank.html" target="flower1">销售排行榜</a></dd>
+            <dd><a href="../page/flowerinf.html" target="flower1">鲜花消息信息展台</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">购物车和订单</a>
+          <dl class="layui-nav-child">
+            <dd><a href="../page/order.html" target="flower1">我的订单</a></dd>
+            <dd><a href="../page/shopping.html" target="flower1">鲜花购物车</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">鲜花分类</a>
+          <dl class="layui-nav-child">
+            <dd><a href="../page/rose.html" target="flower1">玫瑰</a></dd>
+            <dd><a href="../page/carnations.html" target="flower1">康乃馨</a></dd>
+            <dd><a href="../page/lily.html" target="flower1">百合</a></dd>
+          </dl>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+
+    <iframe src="../page/main.html" width="100%" height="100%" name="flower1"></iframe>
+  </div>
+
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © layui.com - 底部固定区域
+  </div>
+</div>
+<script src="../layui/layui.js" th:href="@{/layui/layui.js}"></script>
+
+</body>
+</html>

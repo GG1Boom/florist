@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../layui/css/layui.css" th:href="@{/layui/css/layui.css}">
+</head>
+
+<body>
+<table class="layui-hide" id="test"></table>
+<input type="hidden" id="userId" th:value="${session.users.id}" autocomplete="off">
+<button type="submit" class="layui-btn" data-type="reload" onclick="fun()" >点我查看订单</button>
+
+
+</body>
+<script src="../layui/layui.js" th:href="@{/layui/layui.js}"></script>
+<script src="../js/order.js" th:href="@{/js/order.js}"></script>
+</html>

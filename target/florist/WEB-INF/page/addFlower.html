@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../layui/css/layui.css"/>
+</head>
+<body>
+
+<form class="layui-form" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">花名：</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" id="name" lay-verify="title" autocomplete="off" placeholder="请输入花名" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">买入数量：</label>
+        <div class="layui-input-block">
+            <input type="text" name="buy" id="buy" lay-verify="title" autocomplete="off" placeholder="请输入数量" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">卖出数量：</label>
+        <div class="layui-input-block">
+            <input type="text" name="sell" id="sell" lay-verify="title" autocomplete="off" placeholder="请输入数量" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">成本：</label>
+        <div class="layui-input-block">
+            <input type="text" name="cost" id="cost" lay-verify="title" autocomplete="off" placeholder="请输入成本" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">售价：</label>
+        <div class="layui-input-block">
+            <input type="text" name="price" id="price" lay-verify="title" autocomplete="off" placeholder="请输入售价" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">种类：</label>
+        <div class="layui-input-block">
+            <input type="text" name="role" id="role" lay-verify="title" autocomplete="off" placeholder="请输入种类" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="flowerSubmit">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+
+</form>
+</body>
+<script type="text/javascript" src="../layui/layui.js"></script>
+<script type="text/javascript" src="../js/addFlower.js"></script>
+</html>

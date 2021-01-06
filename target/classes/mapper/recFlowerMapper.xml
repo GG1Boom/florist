@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.eight.florist.dao.recFlowerMapper">
+  <resultMap id="BaseResultMap" type="team.eight.florist.pojo.recFlower">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="information" jdbcType="LONGVARCHAR" property="information" />
+  </resultMap>
+  <resultMap id="BasedResultMap" type="team.eight.florist.pojo.Users">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="face_image" jdbcType="VARCHAR" property="faceImage" />
+    <result column="nickname" jdbcType="LONGVARCHAR" property="nickname" />
+    <result column="phone_number" jdbcType="INTEGER" property="phoneNumber" />
+    <result column="address" jdbcType="LONGVARCHAR" property="address" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from rec_flower
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="team.eight.florist.pojo.recFlower">
+    insert into rec_flower (id, name, path, 
+      information)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
+      #{information,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="team.eight.florist.pojo.recFlower">
+    update rec_flower
+    set name = #{name,jdbcType=VARCHAR},
+      path = #{path,jdbcType=VARCHAR},
+      information = #{information,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, name, path, information
+    from rec_flower
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BasedResultMap">
+    select id, username, face_image, nickname,phone_number,address
+    from users
+  </select>
+</mapper>

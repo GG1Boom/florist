@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.eight.florist.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="team.eight.florist.pojo.Order">
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="flower_name" jdbcType="VARCHAR" property="flowerName" />
+    <result column="count" jdbcType="DOUBLE" property="count" />
+    <result column="create_time" jdbcType="DATE" property="createTime" />
+  </resultMap>
+  <insert id="insert" parameterType="team.eight.florist.pojo.Order">
+    insert into orders (userId, flower_name, count,
+      create_time)
+    values (#{userid,jdbcType=VARCHAR}, #{flowerName,jdbcType=VARCHAR}, #{count,jdbcType=DOUBLE}, 
+      #{createTime,jdbcType=DATE})
+  </insert>
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select flower_name, count, create_time
+    from orders limit #{page},#{limit}
+  </select>
+  <select id="selectById" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select userId, flower_name, count, create_time
+    from orders
+    where userId=#{id}
+  </select>
+  <select id="countOrders" resultType="java.lang.Long">
+    SELECT count(userid)
+    FROM orders
+  </select>
+</mapper>
